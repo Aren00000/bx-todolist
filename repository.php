@@ -32,7 +32,7 @@ function storeTodos(array $todos, ?int $time = null): void
 
 function getTodosOrFail(?int $time = null): array
 {
-	$todos = getTodos();
+	$todos = getTodos($time);
 
 	if (empty($todos)) {
 		echo 'file not found';
