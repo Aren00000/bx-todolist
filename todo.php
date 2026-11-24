@@ -1,5 +1,16 @@
 <?php
 
+//php todo.php list
+//php todo.php list 2022-10-12
+//php todo.php list yesterday
+//php todo.php add "wake up"
+//php todo.php add "drink cofee"
+//php todo.php done 1 2
+//php todo.php undone 1 2
+//php todo.php remove 2 (rm)
+//php todo.php report
+
+
 require_once __Dir__ . '/boot.php';
 function main(array $arguments): void
 {

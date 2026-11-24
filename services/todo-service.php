@@ -1,5 +1,17 @@
 <?php
 
+function createTodo(string $title): array
+{
+	return [
+		'id' => uniqid(),
+		'title' => $title,
+		'completed' => false,
+		'created_at' => time(),
+		'updated_at' => null,
+		'completed_at' => null,
+	];
+}
+
 function mapTodos(array $todos, array $positions, Closure $callback): array
 {
 	foreach ($positions as $position) {
@@ -13,7 +25,7 @@ function mapTodos(array $todos, array $positions, Closure $callback): array
 
 		if(is_array($result))
 		{
-		$todos[$index] = $result;
+			$todos[$index] = $result;
 		}
 		else{
 			unset($todos[$index]);

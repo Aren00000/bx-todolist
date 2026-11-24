@@ -23,6 +23,13 @@ function getRepositoryPath(?int $time): string
 	return ROOT . '/data/' . $fileName;
 }
 
+function addTodo(array $todo, ?int $time = null)
+{
+	$todos = getTodos($time);
+	$todos[] = $todo;
+
+	storeTodos($todos);
+}
 function storeTodos(array $todos, ?int $time = null): void
 {
 	$filePath = getRepositoryPath($time);

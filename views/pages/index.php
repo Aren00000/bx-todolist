@@ -1,0 +1,42 @@
+<?php
+/**
+ * @var array $todos
+ * @var bool $isHistory
+ * @var array $errors
+ */
+
+?>
+
+<main>
+
+	<?php if(!empty($errors)): ?>
+		<div class="alert danger">
+			<?= implode('<br>', $errors) ?>
+		</div>
+	<?php endif?>
+
+
+	<?php if(empty($todos)): ?>
+		<p>Nothing to here</p>
+	<?php endif; ?>
+
+
+	<?php foreach ($todos as $todo): ?>
+		<article class="todo">
+			<label>
+				<input type="checkbox"
+						<?= ($todo['completed']) ? 'checked' : '' ?>
+						<?= ($isHistory) ? 'disabled' : '' ?>>
+				<?=safe($todo['title']) ?>
+			</label>
+		</article>
+
+	<?php endforeach; ?>
+
+	<?php if(!$isHistory): ?>
+		<form action="/" method="post" class="add-todo">
+			<input type="text" name="title" required placeholder="What to do?">
+			<button type="submit">Save</button>
+		</form>
+	<?php endif;?>
+</main>

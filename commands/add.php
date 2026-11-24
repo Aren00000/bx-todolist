@@ -3,21 +3,10 @@
 
 function addCommand(array $arguments)
 {
-	$fileContent = array_shift($arguments);
+	$title = array_shift($arguments);
 
-	$todo =
-		[
-			'id' => uniqid(),
-			'title' => $fileContent,
-			'completed' => false,
-			'created_at' => time(),
-			'updated_at' => null,
-			'completed_at' => null,
-		];
+	$todo = createTodo($title);
 
 
-	$todos = getTodos();
-	$todos[] = $todo;
-
-	storeTodos($todos);
+	addTodo($todo);
 }
